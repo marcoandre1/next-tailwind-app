@@ -135,6 +135,10 @@ export default Speakers;
 
 ### HOC - Higher Order Component
 
+- An HOC component is a function that takes a component and returns a new component.
+
+> `const EnhancedComponent = higherOrderComponent(WrappedComponent);`
+
 ### RP - Render Prop
 
 ### Context
