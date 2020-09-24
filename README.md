@@ -183,4 +183,45 @@ export default withData;
 
 - A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 
-### Context
+### React Context
+
+- The React Context API is designed to share data that can be considered global to all component descendants in component tree.
+
+## Tailwind CSS vs Bootstrap
+
+### CSS Frameworks
+
+Pre-built themes | Low level of primitive based
+------------ | -------------
+Bootstrap | Tailwind CSS
+Foundation | Tachyons
+Bulma |
+Materialize CSS |
+
+### Bootstrap
+
+```html
+<button class="btn btn-primary">Bootstrap Button</button>
+```
+
+Pros | Cons
+------------ | -------------
+Start theming your app immediately | Bootstrap may not meet all your needs
+No CSS work needed | You must extend Bootstrap
+Consistent look and feel | CSS or SASS expertise required
+
+### Tailwind
+
+```html
+<button class="bg-blue-400 hover:bg-blue-600 text-white font-bold px-2 px-4 rounded">Tailwind CSS Button</button>
+```
+
+Pros | Cons
+------------ | -------------
+The look you want with responsiveness on all platforms | Upfront investment required at the start
+Customizations are straightforward | You build your styles and classes from primitives
+
+> More control using Tailwind CSS
+> Easy to customize
+
+## Tailwind setup
