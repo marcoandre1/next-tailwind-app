@@ -225,3 +225,58 @@ Customizations are straightforward | You build your styles and classes from prim
 > Easy to customize
 
 ## Tailwind setup
+
+- To install **Tailwind**, you can see at the [official documentation](https://tailwindcss.com/docs/installation) or you can see at the [official GitHub examples](https://github.com/tailwindlabs/tailwindcss-setup-examples)
+- For **Next.js**, the is an [official example](https://github.com/tailwindlabs/tailwindcss-setup-examples/tree/master/examples/nextjs)
+
+### Custom setup
+
+- Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is in production our app simply needs to reference or import the Tailwind CSS created file. However, is likely you will want to make customizations to Tailwind. To do this you want to include new devDependencies in your `package.json` file.  
+
+```console
+npm install @fullhuman/postcss-purgecss postcss-preset-env tailwindcss --save-dev
+```
+
+- Next, set up your PostCSS plugins by creating a `postcss.config.js` file and adding the following configuration:
+
+```js
+module.exports = {
+  plugins: [
+    'tailwindcss',
+    process.env.NODE_ENV === 'production'
+      ? [
+          "@fullhuman/postcss-purgecss",
+          {
+            content: ['./pages/**/*.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
+            defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+          },
+        ]
+      : undefined,
+    'postcss-preset-env',
+  ].filter(Boolean),
+};
+```
+
+Next, create a CSS file for your Tailwind styles. We've used `styles/index.css` for this example:
+
+```css
+@import 'base';
+@import 'components';
+@import 'utilities';
+```
+
+- Finally, import your CSS in your `_app.js` component to make them available globally:
+
+```js
+import '../styles/index.css'
+
+function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+- Prompt `npm install` to ensure everything is updated.
+- Verify that tailwind is installed correctly by adding a `tailwind.js` page with an [example template](https://tailwindcss.com/components/cards#stacked)
+- Run `npm run dev`
