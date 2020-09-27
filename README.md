@@ -260,9 +260,9 @@ module.exports = {
 Next, create a CSS file for your Tailwind styles. We've used `styles/index.css` for this example:
 
 ```css
-@import 'base';
-@import 'components';
-@import 'utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 - Finally, import your CSS in your `_app.js` component to make them available globally:
@@ -280,3 +280,19 @@ export default MyApp
 - Prompt `npm install` to ensure everything is updated.
 - Verify that tailwind is installed correctly by adding a `tailwind.js` page with an [example template](https://tailwindcss.com/components/cards#stacked)
 - Run `npm run dev`
+
+## Add custom CSS with Tailwind
+
+- Add a `button.cs` file inside the `styles` folder. Instead of adding CSS attributes, we use the tailwind `@apply` directive and follow that by the classes we want to combine into a new CSS class name. In our case this new CSS class name is `btn-blue`
+
+```css
+.btn-blue {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+```
+
+- Finally, add the `@import './button.css';` directive to the `index.css` file. You can now use the new button as follow:
+
+```html
+<button className="btn-blue">Subscribe</button>
+```

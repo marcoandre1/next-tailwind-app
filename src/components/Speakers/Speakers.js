@@ -1,7 +1,7 @@
-import React from 'react';
-import withData from './withData';
+import React from "react";
+import withData from "./withData";
 
-const Speakers = ({speakers}) => {
+const Speakers = ({ speakers }) => {
   return (
     <div>
       {speakers.map(({ imageSrc, name }) => {

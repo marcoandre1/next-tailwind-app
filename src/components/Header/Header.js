@@ -1,5 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const Header = () => <img src='images/header.png'/>;
+const Header = () => <img src="images/header.png" />;
 
 export default Header;
