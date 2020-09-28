@@ -47,16 +47,16 @@ npm run dev
 
 ```js
 function Page() {
-    return (
-      <div>
-        <img src="images/header.png"/>
-        <img src="images/menu.gif"/>
-        <img src="images/searchbar.gif"/>
-        <img src="images/speakers.png"/>
-        <img src="images/footer.png"/>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <img src="images/header.png" />
+      <img src="images/menu.gif" />
+      <img src="images/searchbar.gif" />
+      <img src="images/speakers.png" />
+      <img src="images/footer.png" />
+    </div>
+  );
+}
 export default Page;
 ```
 
@@ -65,9 +65,9 @@ export default Page;
 - For example, create the `src/components/Header/Header.js` file:
 
 ```js
-import React from 'react'
+import React from "react";
 
-const Header = () => <img src='images/header.png'/>;
+const Header = () => <img src="images/header.png" />;
 
 export default Header;
 ```
@@ -76,11 +76,11 @@ export default Header;
 - Update `pages/speakers.js`:
 
 ```js
-import Menu from '../src/components/Menu/Menu';
-import Header from '../src/components/Header/Header';
-import SpeakerSearchBar from '../src/components/SpeakerSearchBar/SpeakerSearchBar';
-import Speakers from '../src/components/Speakers/Speakers';
-import Footer from '../src/components/Footer/Footer';
+import Menu from "../src/components/Menu/Menu";
+import Header from "../src/components/Header/Header";
+import SpeakerSearchBar from "../src/components/SpeakerSearchBar/SpeakerSearchBar";
+import Speakers from "../src/components/Speakers/Speakers";
+import Footer from "../src/components/Footer/Footer";
 
 export default function Page() {
   return (
@@ -102,20 +102,20 @@ export default function Page() {
 - Update `components/Speakers/Speakers.js`:
 
 ```js
-import React from 'react';
+import React from "react";
 const Speakers = () => {
   const speakers = [
     {
-      imageSrc: 'speaker-component-1124',
-      name: 'Douglas Crockford',
+      imageSrc: "speaker-component-1124",
+      name: "Douglas Crockford",
     },
     {
-      imageSrc: 'speaker-component-1530',
-      name: 'Tamara Baker',
+      imageSrc: "speaker-component-1530",
+      name: "Tamara Baker",
     },
     {
-      imageSrc: 'speaker-component-10803',
-      name: 'Eugene Chuvyrov',
+      imageSrc: "speaker-component-10803",
+      name: "Eugene Chuvyrov",
     },
   ];
   return (
@@ -142,10 +142,10 @@ export default Speakers;
 - Update `Speakers/Speaker.js` to add a `Speakers/withData.js` **HOC**:
 
 ```js
-import React from 'react';
-import withData from './withData';
+import React from "react";
+import withData from "./withData";
 
-const Speakers = ({speakers}) => {
+const Speakers = ({ speakers }) => {
   return (
     <div>
       {speakers.map(({ imageSrc, name }) => {
@@ -166,16 +166,16 @@ export default withData(maxSpeakersToShow)(Speakers);
 ```js
 const withData = (maxSpeakersToShow) => (Component) => {
   const speakers = [
-    { imageSrc: 'speaker-component-1124', name: 'Douglas Crockford' },
-    { imageSrc: 'speaker-component-1530', name: 'Tamara Baker' },
-    { imageSrc: 'speaker-component-10803', name: 'Eugene Chuvyrov' },
+    { imageSrc: "speaker-component-1124", name: "Douglas Crockford" },
+    { imageSrc: "speaker-component-1530", name: "Tamara Baker" },
+    { imageSrc: "speaker-component-10803", name: "Eugene Chuvyrov" },
   ];
   return () => {
     const limitSpeakers = speakers.slice(0, maxSpeakersToShow);
     return <Component speakers={limitSpeakers}></Component>;
   };
 };
-  
+
 export default withData;
 ```
 
@@ -191,12 +191,12 @@ export default withData;
 
 ### CSS Frameworks
 
-Pre-built themes | Low level of primitive based
------------- | -------------
-Bootstrap | Tailwind CSS
-Foundation | Tachyons
-Bulma |
-Materialize CSS |
+| Pre-built themes | Low level of primitive based |
+| ---------------- | ---------------------------- |
+| Bootstrap        | Tailwind CSS                 |
+| Foundation       | Tachyons                     |
+| Bulma            |
+| Materialize CSS  |
 
 ### Bootstrap
 
@@ -204,22 +204,26 @@ Materialize CSS |
 <button class="btn btn-primary">Bootstrap Button</button>
 ```
 
-Pros | Cons
------------- | -------------
-Start theming your app immediately | Bootstrap may not meet all your needs
-No CSS work needed | You must extend Bootstrap
-Consistent look and feel | CSS or SASS expertise required
+| Pros                               | Cons                                  |
+| ---------------------------------- | ------------------------------------- |
+| Start theming your app immediately | Bootstrap may not meet all your needs |
+| No CSS work needed                 | You must extend Bootstrap             |
+| Consistent look and feel           | CSS or SASS expertise required        |
 
 ### Tailwind
 
 ```html
-<button class="bg-blue-400 hover:bg-blue-600 text-white font-bold px-2 px-4 rounded">Tailwind CSS Button</button>
+<button
+  class="bg-blue-400 hover:bg-blue-600 text-white font-bold px-2 px-4 rounded"
+>
+  Tailwind CSS Button
+</button>
 ```
 
-Pros | Cons
------------- | -------------
-The look you want with responsiveness on all platforms | Upfront investment required at the start
-Customizations are straightforward | You build your styles and classes from primitives
+| Pros                                                   | Cons                                              |
+| ------------------------------------------------------ | ------------------------------------------------- |
+| The look you want with responsiveness on all platforms | Upfront investment required at the start          |
+| Customizations are straightforward                     | You build your styles and classes from primitives |
 
 > More control using Tailwind CSS
 > Easy to customize
@@ -231,7 +235,7 @@ Customizations are straightforward | You build your styles and classes from prim
 
 ### Custom setup
 
-- Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is in production our app simply needs to reference or import the Tailwind CSS created file. However, is likely you will want to make customizations to Tailwind. To do this you want to include new devDependencies in your `package.json` file.  
+- Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is in production our app simply needs to reference or import the Tailwind CSS created file. However, is likely you will want to make customizations to Tailwind. To do this you want to include new devDependencies in your `package.json` file.
 
 ```console
 npm install @fullhuman/postcss-purgecss postcss-preset-env tailwindcss --save-dev
@@ -242,17 +246,21 @@ npm install @fullhuman/postcss-purgecss postcss-preset-env tailwindcss --save-de
 ```js
 module.exports = {
   plugins: [
-    'tailwindcss',
-    process.env.NODE_ENV === 'production'
+    "tailwindcss",
+    process.env.NODE_ENV === "production"
       ? [
           "@fullhuman/postcss-purgecss",
           {
-            content: ['./pages/**/*.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
-            defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+            content: [
+              "./pages/**/*.{js,jsx,ts,tsx}",
+              "./src/**/*.{js,jsx,ts,tsx}",
+            ],
+            defaultExtractor: (content) =>
+              content.match(/[\w-/:]+(?<!:)/g) || [],
           },
         ]
       : undefined,
-    'postcss-preset-env',
+    "postcss-preset-env",
   ].filter(Boolean),
 };
 ```
@@ -268,13 +276,13 @@ Next, create a CSS file for your Tailwind styles. We've used `styles/index.css` 
 - Finally, import your CSS in your `_app.js` component to make them available globally:
 
 ```js
-import '../styles/index.css'
+import "../styles/index.css";
 
 function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
 ```
 
 - Prompt `npm install` to ensure everything is updated.
@@ -287,7 +295,7 @@ export default MyApp
 
 ```css
 .btn-blue {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
 }
 ```
 
@@ -296,3 +304,37 @@ export default MyApp
 ```html
 <button className="btn-blue">Subscribe</button>
 ```
+
+## Style refactoring with Tailwind CSS
+
+**Common Layout Page**
+
+| Different pages on site | Common components |
+| ----------------------- | ----------------- |
+| Home                    | Header            |
+| Speakers                | Menu              |
+| Sessions                | Footer            |
+| Schedules               |                   |
+
+- Add a `Layout/Layout.js` component:
+
+```js
+import React from "react";
+import Header from "../Header/Header";
+import Menu from "../Menu/Menu";
+import Footer from "../Footer/Footer";
+
+const Layout = ({ children }) => (
+  <div className="mx-4 my-3">
+    <Header />
+    <Menu />
+    {children}
+    <Footer />
+  </div>
+);
+
+export default Layout;
+```
+
+- Update `pages/speakers.js` and `pages/index.js` to include the `Layout`.
+- Update `Header/Header.js`, `Menu/Menu.js` and `Footer/Footer.js` to include **Tailwind CSS**
