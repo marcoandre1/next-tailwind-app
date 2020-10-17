@@ -225,17 +225,17 @@ export default withData;
 | The look you want with responsiveness on all platforms | Upfront investment required at the start          |
 | Customizations are straightforward                     | You build your styles and classes from primitives |
 
-> More control using Tailwind CSS
+> More control using Tailwind CSS  
 > Easy to customize
 
 ## Tailwind setup
 
-- To install **Tailwind**, you can see at the [official documentation](https://tailwindcss.com/docs/installation) or you can see at the [official GitHub examples](https://github.com/tailwindlabs/tailwindcss-setup-examples)
-- For **Next.js**, the is an [official example](https://github.com/tailwindlabs/tailwindcss-setup-examples/tree/master/examples/nextjs)
+- To install **Tailwind**, you can use the [official documentation](https://tailwindcss.com/docs/installation). You can also take a loot at the [official GitHub examples](https://github.com/tailwindlabs/tailwindcss-setup-examples)
+- For **Next.js**, here is the [official example](https://github.com/tailwindlabs/tailwindcss-setup-examples/tree/master/examples/nextjs)
 
 ### Custom setup
 
-- Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is in production our app simply needs to reference or import the Tailwind CSS created file. However, is likely you will want to make customizations to Tailwind. To do this you want to include new devDependencies in your `package.json` file.
+- Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is, in production, our app simply needs to reference or import the Tailwind CSS created file. However, it's likely you will want to make customizations to Tailwind. To do this you want to include new devDependencies in your `package.json` file.
 
 ```console
 npm install @fullhuman/postcss-purgecss postcss-preset-env tailwindcss --save-dev
@@ -287,7 +287,7 @@ export default MyApp;
 
 - Prompt `npm install` to ensure everything is updated.
 - Verify that tailwind is installed correctly by adding a `tailwind.js` page with an [example template](https://tailwindcss.com/components/cards#stacked)
-- Run `npm run dev`
+- Run `npm run dev` and navigate to `http://localhost:3000/tailwind`
 
 ## Add custom CSS with Tailwind
 
@@ -307,7 +307,7 @@ export default MyApp;
 
 ## Style refactoring with Tailwind CSS
 
-**Common Layout Page**
+### Common Layout Page
 
 | Different pages on site | Common components |
 | ----------------------- | ----------------- |
@@ -316,7 +316,7 @@ export default MyApp;
 | Sessions                | Footer            |
 | Schedules               |                   |
 
-- Add a `Layout/Layout.js` component:
+- Add a common `src/components/Layout/Layout.js` component:
 
 ```js
 import React from "react";
@@ -336,5 +336,36 @@ const Layout = ({ children }) => (
 export default Layout;
 ```
 
-- Update `pages/speakers.js` and `pages/index.js` to include the `Layout`.
+- Next, update `pages/speakers.js` and `pages/index.js` to include the `Layout`:
+
+```js
+import Speakers from "../src/components/Speakers/Speakers";
+import Layout from "../src/components/Layout/Layout";
+
+export default function Page() {
+  return (
+    <Layout>
+      <Speakers />
+    </Layout>
+  );
+}
+```
+
 - Update `Header/Header.js`, `Menu/Menu.js` and `Footer/Footer.js` to include **Tailwind CSS**
+- Update `Speakers/Speakers.js` to display more content and the filter bar all styled with **Tailwind CSS**
+
+## Building a React Web App and Refactoring into Components
+
+### Simplifying the Speakers Component
+
+### Using the React Hook useState to Implement Speaker Search
+
+### Updating the Favorite Speaker Status and Move Speakers Data into useState
+
+### Transition from Array to REST Service for Speakers data
+
+### Showing Data Loading Status and Error Codes when Loading REST data
+
+### Using a Reducer to Consolidate and Simplify Our State Management
+
+### Extracting and Refactoring Reducer Functionality
