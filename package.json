@@ -24,7 +24,8 @@
   "dependencies": {
     "next": "^9.5.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-simple-img": "^2.3.9"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",

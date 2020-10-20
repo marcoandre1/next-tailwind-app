@@ -358,6 +358,14 @@ export default function Page() {
 
 ### Simplifying the Speakers Component
 
+- Refactor the `Speakers` component into multiple smaller components: `SpeakerSearchBar` and `Speaker`.
+- Simply the `Speaker` component by adding `SpeakerFavoriteButton` and `SpeakerImage` components.
+- To add lazy loading, we need to add the `SpeakerImage` component. There could be over 100 images to load. We only want to render the image that is shown in the browser. To do this, we add the following package:
+
+```console
+npm install react-simple-img --save
+```
+
 ### Using the React Hook useState to Implement Speaker Search
 
 ### Updating the Favorite Speaker Status and Move Speakers Data into useState
