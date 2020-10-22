@@ -368,6 +368,19 @@ npm install react-simple-img --save
 
 ### Using the React Hook useState to Implement Speaker Search
 
+- We need a state that is represented by the input field value
+
+```javascript
+let state = {
+  searchQuery: 'Crockford'
+}
+```
+
+- The way to manage state, is by using React Hooks API.
+- In `Speakers.js`, create a new state searchQuery using the React `useState` Hook.
+- Pass the `searchQuery` to the `SpeakerSearchBar` component.
+- Finally, add a filter before the array map call.
+
 ### Updating the Favorite Speaker Status and Move Speakers Data into useState
 
 ### Transition from Array to REST Service for Speakers data
