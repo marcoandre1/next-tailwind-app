@@ -372,8 +372,8 @@ npm install react-simple-img --save
 
 ```javascript
 let state = {
-  searchQuery: 'Crockford'
-}
+  searchQuery: "Crockford",
+};
 ```
 
 - The way to manage state, is by using React Hooks API.
@@ -382,6 +382,28 @@ let state = {
 - Finally, add a filter before the array map call.
 
 ### Updating the Favorite Speaker Status and Move Speakers Data into useState
+
+- Update `SpeakerFavoriteButton` and `Speaker` components with `onFavoriteToggle` handler property.
+- Add `onFavoriteToggleHandler` function in `Speakers` component to update the `isFavorite` status.
+- We want the speakers to be stored in **React state**. We can then create a new state with the updated speakers value. This will cause the page to be rendered again:
+
+```javascript
+state: {
+  speakers: [{speaker1},{speaker2}, ...]
+}
+
+setState: ({
+  speakers: [{speaker1},{speaker2withNewValue}, ...]
+});
+```
+
+- Add a new React `useState` hook and pass the initial value of the `speakersArray`:
+
+```javascript
+const [speakers, setSpeakers] = useState(speakersArray);
+```
+
+- We call `setSpeakers` with the new array and the state is updated.
 
 ### Transition from Array to REST Service for Speakers data
 
