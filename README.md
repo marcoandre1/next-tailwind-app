@@ -1,5 +1,7 @@
 # next-tailwind-app
 
+> This website is ready for deployment using gh-pages. Run: `npm run deploy`
+
 ## Setting up the project
 
 ```console
