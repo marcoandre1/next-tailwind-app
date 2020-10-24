@@ -407,6 +407,58 @@ const [speakers, setSpeakers] = useState(speakersArray);
 
 ### Transition from Array to REST Service for Speakers data
 
+> **Representational state transfer (REST)** is a software architectural style that defines a set of constraints to be used for creating Web services.
+
+- Use `axios` for `get` and `put` calls :
+
+```console
+npm install axios --save
+```
+
+- Add `axios` to the `Speakers` component :
+
+```javascript
+import axios from "axios";
+```
+
+- Delete the `speakersArray`
+- Since we want to fetch the data when the `Speakers` component loads, use the react hook `useEffect`, which is design to add side effects to our functional component. The side effect we want is to add Speaker to the Speakers state.
+
+```javascript
+useEffect(() => {
+  const fetchData = async () => {
+    const response = await axios.get("http://localhost:4000/speakers");
+    setSpeakers(response.data);
+  };
+  fetchData();
+}, []);
+```
+
+- Update the `onFavoriteToggleHandler` function to use `axios`
+
+```javascript
+async function onFavoriteToggleHandler(speakerRec) {
+  await axios.put(
+    `http://localhost:4000/speakers/${speakerRec.id}`,
+    toggledSpeakerRec
+  );
+}
+```
+
+- Reproduce REST calls with `json-server` :
+
+```console
+npm install json-server --save-dev
+```
+
+- Add a launch command that starts the server in `package.json`:
+
+```json
+"json-server": "json-server --watch db.json --port 4000 --delay 500"
+```
+
+- Add `db.json` file in the root of the project.
+
 ### Showing Data Loading Status and Error Codes when Loading REST data
 
 ### Using a Reducer to Consolidate and Simplify Our State Management
