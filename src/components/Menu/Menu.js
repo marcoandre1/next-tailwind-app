@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const Menu = () => (
   <nav className="flex items-center justify-between flex-wrap bg-gray-800 mb-6 p-6 rounded-md">

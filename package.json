@@ -7,13 +7,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && next export && gh-pages -d out",
+    "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcoandre1/next-tailwind-app.git"
+    "url": "https://github.com/marcoandre1/next-tailwind-app.git"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,7 @@
   "homepage": "https://modokemdev.com/next-tailwind-app",
   "dependencies": {
     "next": "^9.5.3",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-simple-img": "^2.3.9"
@@ -38,6 +39,7 @@
     "gh-pages": "^3.1.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
     "tailwindcss": "^1.8.10"
   }
 }

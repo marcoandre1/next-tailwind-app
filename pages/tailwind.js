@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Page() {
   return (
     <div className="component-highlight max-w-sm rounded overflow-hidden shadow-lg">

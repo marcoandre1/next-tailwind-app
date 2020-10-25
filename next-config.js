@@ -1,4 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
-  publicPath:
-    process.env.NODE_ENV === "production" ? "/next-tailwind-app/" : "/",
+  basePath: '/next-tailwind-app',
 };

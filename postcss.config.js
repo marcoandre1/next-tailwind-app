@@ -1,19 +1,20 @@
+/* eslint-disable no-undef */
 module.exports = {
   plugins: [
-    "tailwindcss",
-    process.env.NODE_ENV === "production"
+    'tailwindcss',
+    process.env.NODE_ENV === 'production'
       ? [
-          "@fullhuman/postcss-purgecss",
+          '@fullhuman/postcss-purgecss',
           {
             content: [
-              "./pages/**/*.{js,jsx,ts,tsx}",
-              "./src/**/*.{js,jsx,ts,tsx}",
+              './pages/**/*.{js,jsx,ts,tsx}',
+              './src/**/*.{js,jsx,ts,tsx}',
             ],
             defaultExtractor: (content) =>
               content.match(/[\w-/:]+(?<!:)/g) || [],
           },
         ]
       : undefined,
-    "postcss-preset-env",
+    'postcss-preset-env',
   ].filter(Boolean),
 };
