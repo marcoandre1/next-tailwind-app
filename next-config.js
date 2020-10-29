@@ -1,4 +1,16 @@
 /* eslint-disable no-undef */
-module.exports = {
-  basePath: '/next-tailwind-app',
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
+
+module.exports = (phase, { defaultConfig }) => {
+  if (phase === PHASE_DEVELOPMENT_SERVER) {
+    return {
+      /* development only config options here */
+      basePath: '',
+    };
+  }
+
+  return {
+    /* config options for all phases except development here */
+    basePath: '/next-tailwind-app',
+  };
 };

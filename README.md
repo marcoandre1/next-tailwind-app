@@ -1,6 +1,25 @@
 # next-tailwind-app
 
-> This website is ready for deployment using gh-pages. Run: `npm run deploy`
+**Demo App** : [modokemdev.com/speakers-app](https://modokemdev.com/speakers-app/)
+
+This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_. It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) styling. Personally, I think the configuration of the project is kind of buggy. I was able to make a descent configuration (kind of boiler-template) in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages.
+
+The **next-tailwind-app** can run locally on your machine. Clone the repository and run `npm run dev`.
+
+Here are the _notes_ I took from the course:
+
+## index
+
+1. [Setting up the project]()
+2. [Splitting up the project]()
+3. [Render from array]()
+4. [Components abstraction]()
+5. [Tailwind CSS vs Bootstrap]()
+6. [Tailwind setup]()
+7. [Style refactoring with Tailwind CSS]()
+8. [Building a React Web App and Refactoring into Components]()
+9.
+10.
 
 ## Setting up the project
 
@@ -19,7 +38,7 @@ npm install react react-dom next --save
 }
 ```
 
-- **Next.js** has **file-based routing**, meaning that any component in the pages directory gets a route.
+**Next.js** has **file-based routing**, meaning that any component in the pages directory gets a route.
 
 - Create `pages/index.js`:
 
@@ -42,10 +61,10 @@ npm run dev
 
 ## Splitting up the project
 
-- `Next.js` looks for static files in the `public` folder.
-- For example, we could have an image at `public/images/header.png` and it would be served at `http://localhost:3000/images/header.png`.
-- Add the images folder and copy/paste images.
-- Create the `pages/speakers.js` file:
+**Next.js** looks for static files in the **public** folder. For example, we could have an image at `public/images/header.png` and it would be served at `http://localhost:3000/images/header.png`.
+
+- Add the **images** folder and copy/paste images.
+- Create the `pages/speakers.js` page:
 
 ```js
 function Page() {
@@ -63,19 +82,10 @@ export default Page;
 ```
 
 - Run `npm run dev` and go to `http://localhost:3000/speakers`
-- To split the components, we need to create a `src/components` folder.
-- For example, create the `src/components/Header/Header.js` file:
 
-```js
-import React from "react";
+To split the components, we need to create a `src/components` folder and add all the components.
 
-const Header = () => <img src="images/header.png" />;
-
-export default Header;
-```
-
-- To the same for the other components.
-- Update `pages/speakers.js`:
+- Finally, update `pages/speakers.js`:
 
 ```js
 import Menu from "../src/components/Menu/Menu";
@@ -99,8 +109,8 @@ export default function Page() {
 
 ## Render from array
 
-- Each child component has its own component folder.
-- We can divide the `Speakers` component into an array of 3 images.
+We can divide the `Speakers` component into an array of 3 images.
+
 - Update `components/Speakers/Speakers.js`:
 
 ```js
@@ -137,7 +147,7 @@ export default Speakers;
 
 ### HOC - Higher Order Component
 
-- An HOC component is a function that takes a component and returns a new component.
+An HOC component is a function that takes a component and returns a new component.
 
 > `const EnhancedComponent = higherOrderComponent(WrappedComponent);`
 
@@ -183,11 +193,11 @@ export default withData;
 
 ### RP - Render Prop
 
-- A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
+A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
 
 ### React Context
 
-- The React Context API is designed to share data that can be considered global to all component descendants in component tree.
+The React Context API is designed to share data that can be considered global to all component descendants in component tree.
 
 ## Tailwind CSS vs Bootstrap
 
@@ -197,8 +207,8 @@ export default withData;
 | ---------------- | ---------------------------- |
 | Bootstrap        | Tailwind CSS                 |
 | Foundation       | Tachyons                     |
-| Bulma            |
-| Materialize CSS  |
+| Bulma            |                              |
+| Materialize CSS  |                              |
 
 ### Bootstrap
 
@@ -232,12 +242,11 @@ export default withData;
 
 ## Tailwind setup
 
-- To install **Tailwind**, you can use the [official documentation](https://tailwindcss.com/docs/installation). You can also take a loot at the [official GitHub examples](https://github.com/tailwindlabs/tailwindcss-setup-examples)
-- For **Next.js**, here is the [official example](https://github.com/tailwindlabs/tailwindcss-setup-examples/tree/master/examples/nextjs)
+To install **Tailwind**, you can use the [official documentation](https://tailwindcss.com/docs/installation). You can also take a loot at the [official GitHub examples](https://github.com/tailwindlabs/tailwindcss-setup-examples). Here is the [official example](https://github.com/tailwindlabs/tailwindcss-setup-examples/tree/master/examples/nextjs) for **Next.js**.
 
 ### Custom setup
 
-- Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is, in production, our app simply needs to reference or import the Tailwind CSS created file. However, it's likely you will want to make customizations to Tailwind. To do this you want to include new devDependencies in your `package.json` file.
+Since Tailwind is purely about using predefined classes nothing has to change in our built process that affects our production build. That is, in production, our app simply needs to reference or import the **Tailwind CSS** created file. However, it's likely you will want to make customizations to Tailwind. To do this you want to include new **devDependencies** in your `package.json` file.
 
 ```console
 npm install @fullhuman/postcss-purgecss postcss-preset-env tailwindcss --save-dev
@@ -288,12 +297,12 @@ export default MyApp;
 ```
 
 - Prompt `npm install` to ensure everything is updated.
-- Verify that tailwind is installed correctly by adding a `tailwind.js` page with an [example template](https://tailwindcss.com/components/cards#stacked)
+- Verify that **Tailwind CSS** is installed correctly by adding a `tailwind.js` page with an [example template](https://tailwindcss.com/components/cards#stacked)
 - Run `npm run dev` and navigate to `http://localhost:3000/tailwind`
 
-## Add custom CSS with Tailwind
+### Add custom CSS with Tailwind
 
-- Add a `button.cs` file inside the `styles` folder. Instead of adding CSS attributes, we use the tailwind `@apply` directive and follow that by the classes we want to combine into a new CSS class name. In our case this new CSS class name is `btn-blue`
+Add a `button.cs` file inside the `styles` folder. Instead of adding CSS attributes, we use the tailwind `@apply` directive and follow that by the classes we want to combine into a new CSS class name. In our case this new CSS class name is `btn-blue`
 
 ```css
 .btn-blue {
@@ -301,7 +310,7 @@ export default MyApp;
 }
 ```
 
-- Finally, add the `@import './button.css';` directive to the `index.css` file. You can now use the new button as follow:
+Finally, add the `@import './button.css';` directive to the `index.css` file. You can now use the new button as follow:
 
 ```html
 <button className="btn-blue">Subscribe</button>
@@ -338,30 +347,16 @@ const Layout = ({ children }) => (
 export default Layout;
 ```
 
-- Next, update `pages/speakers.js` and `pages/index.js` to include the `Layout`:
-
-```js
-import Speakers from "../src/components/Speakers/Speakers";
-import Layout from "../src/components/Layout/Layout";
-
-export default function Page() {
-  return (
-    <Layout>
-      <Speakers />
-    </Layout>
-  );
-}
-```
-
-- Update `Header/Header.js`, `Menu/Menu.js` and `Footer/Footer.js` to include **Tailwind CSS**
-- Update `Speakers/Speakers.js` to display more content and the filter bar all styled with **Tailwind CSS**
+- Next, update the **pages** to include the `Layout` component.
+- Update `Header/Header.js`, `Menu/Menu.js` and `Footer/Footer.js` to include **Tailwind CSS**.
+- Update `Speakers/Speakers.js` to display more content and the filter bar all styled with **Tailwind CSS**.
 
 ## Building a React Web App and Refactoring into Components
 
 ### Simplifying the Speakers Component
 
 - Refactor the `Speakers` component into multiple smaller components: `SpeakerSearchBar` and `Speaker`.
-- Simply the `Speaker` component by adding `SpeakerFavoriteButton` and `SpeakerImage` components.
+- Simplify the `Speaker` component by adding `SpeakerFavoriteButton` and `SpeakerImage` components.
 - To add lazy loading, we need to add the `SpeakerImage` component. There could be over 100 images to load. We only want to render the image that is shown in the browser. To do this, we add the following package:
 
 ```console
@@ -378,10 +373,10 @@ let state = {
 };
 ```
 
-- The way to manage state, is by using React Hooks API.
-- In `Speakers.js`, create a new state searchQuery using the React `useState` Hook.
+- The way to manage state, is by using **React Hooks API**.
+- In `Speakers.js`, create a new state `searchQuery` using the React `useState` Hook.
 - Pass the `searchQuery` to the `SpeakerSearchBar` component.
-- Finally, add a filter before the array map call.
+- Finally, add a **filter** before the array **map** call.
 
 ### Updating the Favorite Speaker Status and Move Speakers Data into useState
 
