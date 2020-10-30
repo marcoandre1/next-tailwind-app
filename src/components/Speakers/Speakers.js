@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import SpeakerSearchBar from '../SpeakerSearchBar/SpeakerSearchBar';
-import Speaker from '../Speaker/Speaker';
+import SpeakerSearchBar from '../SpeakerSearchBar/SpeakerSearchBar'
+import Speaker from '../Speaker/Speaker'
 
 const Speakers = () => {
   const speakersArray = [
@@ -41,29 +41,29 @@ const Speakers = () => {
       bio:
         'Eugene Chuvyrov is  a Senior Cloud Architect at Microsoft. He works directly with both startups and enterprises to enable their solutions in Microsoft cloud, and to make Azure better as a result of this work with partners.',
     },
-  ];
+  ]
 
   function toggleSpeakerFavorite(speakerRec) {
     return {
       ...speakerRec,
       isFavorite: !speakerRec.isFavorite,
-    };
+    }
   }
 
   function onFavoriteToggleHandler(speakerRec) {
-    const toggledSpeakerRec = toggleSpeakerFavorite(speakerRec);
+    const toggledSpeakerRec = toggleSpeakerFavorite(speakerRec)
     const speakerIndex = speakers
       .map((speaker) => speaker.id)
-      .indexOf(speakerRec.id);
+      .indexOf(speakerRec.id)
     setSpeakers([
       ...speakers.slice(0, speakerIndex),
       toggledSpeakerRec,
       ...speakers.slice(speakerIndex + 1),
-    ]);
+    ])
   }
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [speakers, setSpeakers] = useState(speakersArray);
+  const [searchQuery, setSearchQuery] = useState('')
+  const [speakers, setSpeakers] = useState(speakersArray)
 
   return (
     <div>
@@ -74,10 +74,10 @@ const Speakers = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-12">
         {speakers
           .filter((rec) => {
-            const targetString = `${rec.firstName} ${rec.lastName}`.toLowerCase();
+            const targetString = `${rec.firstName} ${rec.lastName}`.toLowerCase()
             return searchQuery.length === 0
               ? true
-              : targetString.includes(searchQuery.toLocaleLowerCase());
+              : targetString.includes(searchQuery.toLocaleLowerCase())
           })
           .map((speaker) => (
             <Speaker
@@ -88,6 +88,6 @@ const Speakers = () => {
           ))}
       </div>
     </div>
-  );
-};
-export default Speakers;
+  )
+}
+export default Speakers

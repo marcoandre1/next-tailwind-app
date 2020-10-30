@@ -5,14 +5,14 @@ const withData = (maxSpeakersToShow) => (Component) => {
     { imageSrc: 'speaker-component-1124', name: 'Douglas Crockford' },
     { imageSrc: 'speaker-component-1530', name: 'Tamara Baker' },
     { imageSrc: 'speaker-component-10803', name: 'Eugene Chuvyrov' },
-  ];
+  ]
   return () => {
-    const limitSpeakers = speakers.slice(0, maxSpeakersToShow);
-    return <Component speakers={limitSpeakers}></Component>;
-  };
-};
+    const limitSpeakers = speakers.slice(0, maxSpeakersToShow)
+    return <Component speakers={limitSpeakers}></Component>
+  }
+}
 
-export default withData;
+export default withData
 
 // function that uses the function key words
 

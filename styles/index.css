@@ -1,11 +1,11 @@
-@import "./button.css";
+@import './button.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .heartredbutton {
-  background-image: url("/heart-red.png");
+  background-image: url('/heart-red.png');
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -16,7 +16,7 @@
 }
 
 .heartdarkbutton {
-  background-image: url("/heart-dark.png");
+  background-image: url('/heart-dark.png');
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -27,7 +27,7 @@
 }
 
 .heartorangebutton {
-  background-image: url("/heart-orange.png");
+  background-image: url('/heart-orange.png');
   background-color: transparent;
   cursor: pointer;
   border: none;

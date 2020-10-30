@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SpeakerFavoriteButton = ({ isFavorite, onFavoriteToggle }) => {
   return (
@@ -6,7 +6,7 @@ const SpeakerFavoriteButton = ({ isFavorite, onFavoriteToggle }) => {
       className={isFavorite ? 'heartredbutton' : 'heartdarkbutton'}
       onClick={onFavoriteToggle}
     ></div>
-  );
-};
+  )
+}
 
-export default SpeakerFavoriteButton;
+export default SpeakerFavoriteButton

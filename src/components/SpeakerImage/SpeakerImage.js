@@ -1,8 +1,8 @@
-import React from 'react';
-import { SimpleImg } from 'react-simple-img';
+import React from 'react'
+import { SimpleImg } from 'react-simple-img'
 
 function SpeakerImage({ id }) {
-  const imageUrl = `/speakers/speaker-${id}.jpg`;
+  const imageUrl = `/speakers/speaker-${id}.jpg`
   return (
     <SimpleImg
       src={imageUrl}
@@ -11,7 +11,7 @@ function SpeakerImage({ id }) {
       height={200}
       applyReactRatio="true"
     />
-  );
+  )
 }
 
-export default SpeakerImage;
+export default SpeakerImage

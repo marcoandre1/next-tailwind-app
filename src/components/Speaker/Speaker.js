@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import SpeakerImage from '../SpeakerImage/SpeakerImage';
-import SpeakerFavoriteButton from '../SpeakerFavoriteButton/SpeakerFavoriteButton';
+import SpeakerImage from '../SpeakerImage/SpeakerImage'
+import SpeakerFavoriteButton from '../SpeakerFavoriteButton/SpeakerFavoriteButton'
 
 const Speaker = ({
   id,
@@ -26,6 +26,6 @@ const Speaker = ({
     </div>
     <div className="text-gray-600">{bio.substr(0, 70) + '...'}</div>
   </div>
-);
+)
 
-export default Speaker;
+export default Speaker

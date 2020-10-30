@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SpeakerSearchBar = ({ searchQuery, setSearchQuery }) => (
   <div className="mb-6 ">
@@ -11,6 +11,6 @@ const SpeakerSearchBar = ({ searchQuery, setSearchQuery }) => (
       onChange={(e) => setSearchQuery(e.target.value)}
     />
   </div>
-);
+)
 
-export default SpeakerSearchBar;
+export default SpeakerSearchBar

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Header = () => (
   <div className="bg-gray-200 rounded-md mb-6 p-6 pt-12 pb-12">
@@ -15,6 +15,6 @@ const Header = () => (
       </div>
     </div>
   </div>
-);
+)
 
-export default Header;
+export default Header

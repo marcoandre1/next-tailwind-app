@@ -48,9 +48,9 @@ function Page() {
     <div>
       <h1>Hello From Pluralsight</h1>
     </div>
-  );
+  )
 }
-export default Page;
+export default Page
 ```
 
 - Start the application:
@@ -76,9 +76,9 @@ function Page() {
       <img src="images/speakers.png" />
       <img src="images/footer.png" />
     </div>
-  );
+  )
 }
-export default Page;
+export default Page
 ```
 
 - Run `npm run dev` and go to `http://localhost:3000/speakers`
@@ -88,11 +88,11 @@ To split the components, we need to create a `src/components` folder and add all
 - Finally, update `pages/speakers.js`:
 
 ```js
-import Menu from "../src/components/Menu/Menu";
-import Header from "../src/components/Header/Header";
-import SpeakerSearchBar from "../src/components/SpeakerSearchBar/SpeakerSearchBar";
-import Speakers from "../src/components/Speakers/Speakers";
-import Footer from "../src/components/Footer/Footer";
+import Menu from '../src/components/Menu/Menu'
+import Header from '../src/components/Header/Header'
+import SpeakerSearchBar from '../src/components/SpeakerSearchBar/SpeakerSearchBar'
+import Speakers from '../src/components/Speakers/Speakers'
+import Footer from '../src/components/Footer/Footer'
 
 export default function Page() {
   return (
@@ -103,7 +103,7 @@ export default function Page() {
       <Speakers />
       <Footer />
     </div>
-  );
+  )
 }
 ```
 
@@ -114,33 +114,33 @@ We can divide the `Speakers` component into an array of 3 images.
 - Update `components/Speakers/Speakers.js`:
 
 ```js
-import React from "react";
+import React from 'react'
 const Speakers = () => {
   const speakers = [
     {
-      imageSrc: "speaker-component-1124",
-      name: "Douglas Crockford",
+      imageSrc: 'speaker-component-1124',
+      name: 'Douglas Crockford',
     },
     {
-      imageSrc: "speaker-component-1530",
-      name: "Tamara Baker",
+      imageSrc: 'speaker-component-1530',
+      name: 'Tamara Baker',
     },
     {
-      imageSrc: "speaker-component-10803",
-      name: "Eugene Chuvyrov",
+      imageSrc: 'speaker-component-10803',
+      name: 'Eugene Chuvyrov',
     },
-  ];
+  ]
   return (
     <div>
       {speakers.map(({ imageSrc, name }) => {
         return (
           <img src={`/images/${imageSrc}.png`} alt={name} key={imageSrc}></img>
-        );
+        )
       })}
     </div>
-  );
-};
-export default Speakers;
+  )
+}
+export default Speakers
 ```
 
 ## Components abstraction
@@ -154,8 +154,8 @@ An HOC component is a function that takes a component and returns a new componen
 - Update `Speakers/Speaker.js` to add a `Speakers/withData.js` **HOC**:
 
 ```js
-import React from "react";
-import withData from "./withData";
+import React from 'react'
+import withData from './withData'
 
 const Speakers = ({ speakers }) => {
   return (
@@ -163,14 +163,14 @@ const Speakers = ({ speakers }) => {
       {speakers.map(({ imageSrc, name }) => {
         return (
           <img src={`/images/${imageSrc}.png`} alt={name} key={imageSrc}></img>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-const maxSpeakersToShow = 2;
-export default withData(maxSpeakersToShow)(Speakers);
+const maxSpeakersToShow = 2
+export default withData(maxSpeakersToShow)(Speakers)
 ```
 
 - Create `Speakers/withData.js`:
@@ -178,17 +178,17 @@ export default withData(maxSpeakersToShow)(Speakers);
 ```js
 const withData = (maxSpeakersToShow) => (Component) => {
   const speakers = [
-    { imageSrc: "speaker-component-1124", name: "Douglas Crockford" },
-    { imageSrc: "speaker-component-1530", name: "Tamara Baker" },
-    { imageSrc: "speaker-component-10803", name: "Eugene Chuvyrov" },
-  ];
+    { imageSrc: 'speaker-component-1124', name: 'Douglas Crockford' },
+    { imageSrc: 'speaker-component-1530', name: 'Tamara Baker' },
+    { imageSrc: 'speaker-component-10803', name: 'Eugene Chuvyrov' },
+  ]
   return () => {
-    const limitSpeakers = speakers.slice(0, maxSpeakersToShow);
-    return <Component speakers={limitSpeakers}></Component>;
-  };
-};
+    const limitSpeakers = speakers.slice(0, maxSpeakersToShow)
+    return <Component speakers={limitSpeakers}></Component>
+  }
+}
 
-export default withData;
+export default withData
 ```
 
 ### RP - Render Prop
@@ -257,23 +257,23 @@ npm install @fullhuman/postcss-purgecss postcss-preset-env tailwindcss --save-de
 ```js
 module.exports = {
   plugins: [
-    "tailwindcss",
-    process.env.NODE_ENV === "production"
+    'tailwindcss',
+    process.env.NODE_ENV === 'production'
       ? [
-          "@fullhuman/postcss-purgecss",
+          '@fullhuman/postcss-purgecss',
           {
             content: [
-              "./pages/**/*.{js,jsx,ts,tsx}",
-              "./src/**/*.{js,jsx,ts,tsx}",
+              './pages/**/*.{js,jsx,ts,tsx}',
+              './src/**/*.{js,jsx,ts,tsx}',
             ],
             defaultExtractor: (content) =>
               content.match(/[\w-/:]+(?<!:)/g) || [],
           },
         ]
       : undefined,
-    "postcss-preset-env",
+    'postcss-preset-env',
   ].filter(Boolean),
-};
+}
 ```
 
 Next, create a CSS file for your Tailwind styles. We've used `styles/index.css` for this example:
@@ -287,13 +287,13 @@ Next, create a CSS file for your Tailwind styles. We've used `styles/index.css` 
 - Finally, import your CSS in your `_app.js` component to make them available globally:
 
 ```js
-import "../styles/index.css";
+import '../styles/index.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return <Component {...pageProps} />
 }
 
-export default MyApp;
+export default MyApp
 ```
 
 - Prompt `npm install` to ensure everything is updated.
@@ -330,10 +330,10 @@ Finally, add the `@import './button.css';` directive to the `index.css` file. Yo
 - Add a common `src/components/Layout/Layout.js` component:
 
 ```js
-import React from "react";
-import Header from "../Header/Header";
-import Menu from "../Menu/Menu";
-import Footer from "../Footer/Footer";
+import React from 'react'
+import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
+import Footer from '../Footer/Footer'
 
 const Layout = ({ children }) => (
   <div className="mx-4 my-3">
@@ -342,9 +342,9 @@ const Layout = ({ children }) => (
     {children}
     <Footer />
   </div>
-);
+)
 
-export default Layout;
+export default Layout
 ```
 
 - Next, update the **pages** to include the `Layout` component.
@@ -369,8 +369,8 @@ npm install react-simple-img --save
 
 ```javascript
 let state = {
-  searchQuery: "Crockford",
-};
+  searchQuery: 'Crockford',
+}
 ```
 
 - The way to manage state, is by using **React Hooks API**.
@@ -397,7 +397,7 @@ setState: ({
 - Add a new React `useState` hook and pass the initial value of the `speakersArray`:
 
 ```javascript
-const [speakers, setSpeakers] = useState(speakersArray);
+const [speakers, setSpeakers] = useState(speakersArray)
 ```
 
 - We call `setSpeakers` with the new array and the state is updated.
@@ -415,7 +415,7 @@ npm install axios --save
 - Add `axios` to the `Speakers` component :
 
 ```javascript
-import axios from "axios";
+import axios from 'axios'
 ```
 
 - Delete the `speakersArray`
@@ -424,11 +424,11 @@ import axios from "axios";
 ```javascript
 useEffect(() => {
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:4000/speakers");
-    setSpeakers(response.data);
-  };
-  fetchData();
-}, []);
+    const response = await axios.get('http://localhost:4000/speakers')
+    setSpeakers(response.data)
+  }
+  fetchData()
+}, [])
 ```
 
 - Update the `onFavoriteToggleHandler` function to use `axios`
@@ -438,7 +438,7 @@ async function onFavoriteToggleHandler(speakerRec) {
   await axios.put(
     `http://localhost:4000/speakers/${speakerRec.id}`,
     toggledSpeakerRec
-  );
+  )
 }
 ```
 

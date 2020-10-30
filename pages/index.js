@@ -1,4 +1,4 @@
-import Layout from '../src/components/Layout/Layout';
+import Layout from '../src/components/Layout/Layout'
 
 function Page() {
   return (
@@ -16,6 +16,6 @@ function Page() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
-export default Page;
+export default Page
