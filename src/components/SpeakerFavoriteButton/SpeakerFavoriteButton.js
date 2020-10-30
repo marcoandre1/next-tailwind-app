@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const SpeakerFavoriteButton = ({ isFavorite, onFavoriteToggle }) => {
   return (
@@ -8,11 +7,6 @@ const SpeakerFavoriteButton = ({ isFavorite, onFavoriteToggle }) => {
       onClick={onFavoriteToggle}
     ></div>
   );
-};
-
-SpeakerFavoriteButton.propTypes = {
-  isFavorite: PropTypes.bool,
-  onFavoriteToggle: PropTypes.bool,
 };
 
 export default SpeakerFavoriteButton;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SimpleImg } from 'react-simple-img';
 
 function SpeakerImage({ id }) {
@@ -14,9 +13,5 @@ function SpeakerImage({ id }) {
     />
   );
 }
-
-SpeakerImage.propTypes = {
-  id: PropTypes.string,
-};
 
 export default SpeakerImage;

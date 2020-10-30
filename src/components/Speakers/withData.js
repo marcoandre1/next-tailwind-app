@@ -1,7 +1,5 @@
-// import React from 'react';
-
 // function that uses lambdas
-/*
+
 const withData = (maxSpeakersToShow) => (Component) => {
   const speakers = [
     { imageSrc: 'speaker-component-1124', name: 'Douglas Crockford' },
@@ -15,7 +13,6 @@ const withData = (maxSpeakersToShow) => (Component) => {
 };
 
 export default withData;
-*/
 
 // function that uses the function key words
 

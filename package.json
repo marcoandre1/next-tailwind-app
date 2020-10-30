@@ -4,18 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "export": "next build && next export && touch ./out/.nojekyll",
-    "deploy": "gh-pages -d out -t true",
-    "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "start": "next start"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcoandre1/next-tailwind-app.git"
+    "url": "git+https://github.com/marcoandre1/next-tailwind-app.git"
   },
   "keywords": [],
   "author": "",
@@ -23,25 +18,17 @@
   "bugs": {
     "url": "https://github.com/marcoandre1/next-tailwind-app/issues"
   },
-  "homepage": "https://modokemdev.com/next-tailwind-app",
+  "homepage": "https://github.com/marcoandre1/next-tailwind-app#readme",
   "dependencies": {
     "next": "^9.5.3",
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-simple-img": "^2.3.9"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
-    "eslint": "^7.10.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.2",
-    "gh-pages": "^3.1.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
     "tailwindcss": "^1.8.10"
   }
 }

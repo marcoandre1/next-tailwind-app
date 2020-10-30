@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const SpeakerSearchBar = ({ searchQuery, setSearchQuery }) => (
   <div className="mb-6 ">
@@ -13,10 +12,5 @@ const SpeakerSearchBar = ({ searchQuery, setSearchQuery }) => (
     />
   </div>
 );
-
-SpeakerSearchBar.propTypes = {
-  searchQuery: PropTypes.string,
-  setSearchQuery: PropTypes.string,
-};
 
 export default SpeakerSearchBar;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import SpeakerImage from '../SpeakerImage/SpeakerImage';
 import SpeakerFavoriteButton from '../SpeakerFavoriteButton/SpeakerFavoriteButton';
@@ -28,14 +27,5 @@ const Speaker = ({
     <div className="text-gray-600">{bio.substr(0, 70) + '...'}</div>
   </div>
 );
-
-Speaker.propTypes = {
-  id: PropTypes.string,
-  bio: PropTypes.string,
-  firstName: PropTypes.string,
-  lastName: PropTypes.string,
-  isFavorite: PropTypes.string,
-  onFavoriteToggle: PropTypes.string,
-};
 
 export default Speaker;
