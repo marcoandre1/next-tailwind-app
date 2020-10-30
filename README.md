@@ -2,7 +2,7 @@
 
 **Demo App** : [modokemdev.com/speakers-app](https://modokemdev.com/speakers-app/)
 
-This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_. It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) style. Personally, I don't like the project setup. You can find an updated setup in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages.
+This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_ ([Here](https://github.com/pkellner/pluralsight-designing-react-components-course-code) is the GitHub repository). It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) style. Personally, I don't like the project setup. You can find an updated setup in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages.
 
 The **next-tailwind-app** can run locally on your machine. Clone the repository and run `npm run dev`.
 
@@ -404,6 +404,11 @@ const [speakers, setSpeakers] = useState(speakersArray)
 
 > **Representational state transfer (REST)** is a software architectural style that defines a set of constraints to be used for creating Web services.
 
+| HTTP VERB | URL Endpoint                          |
+| --------- | ------------------------------------- |
+| GET       | <http://localhost:4000/speakers>      |
+| PUT       | <http://loclalhost:4000/speakers/$ID> |
+
 - Use `axios` for `get` and `put` calls :
 
 ```console
@@ -416,10 +421,13 @@ npm install axios --save
 import axios from 'axios'
 ```
 
-- Delete the `speakersArray`
-- Since we want to fetch the data when the `Speakers` component loads, use the react hook `useEffect`, which is design to add side effects to our functional component. The side effect we want is to add Speaker to the Speakers state.
+- Delete the `speakersArray`.
+- Change the `useState` that initializes our speakers to an empty array: `useState([])`.
+- Since we want to fetch the data when the `Speakers` component loads, use the react hook `useEffect`, which is design to add side effects to our functional component. The side effect we want is to add speakers to the speaker state.
 
 ```javascript
+import React, { useState, useEffect } from 'react'
+
 useEffect(() => {
   const fetchData = async () => {
     const response = await axios.get('http://localhost:4000/speakers')
@@ -429,7 +437,7 @@ useEffect(() => {
 }, [])
 ```
 
-- Update the `onFavoriteToggleHandler` function to use `axios`
+- Update the `onFavoriteToggleHandler` function to use `axios`:
 
 ```javascript
 async function onFavoriteToggleHandler(speakerRec) {
@@ -449,10 +457,13 @@ npm install json-server --save-dev
 - Add a launch command that starts the server in `package.json`:
 
 ```json
-"json-server": "json-server --watch db.json --port 4000 --delay 500"
+"scripts": {
+  "json-server": "json-server --watch db.json --port 4000 --delay 500"
+ }
 ```
 
 - Add `db.json` file in the root of the project.
+- Finally, run on distinct terminals: `npm run dev` and `npm run json-server`
 
 ### Showing Data Loading Status and Error Codes when Loading REST data
 

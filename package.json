@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "json-server": "json-server --watch db.json --port 4000 --delay 500"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/marcoandre1/next-tailwind-app#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
+    "json-server": "^0.16.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "tailwindcss": "^1.8.10"
