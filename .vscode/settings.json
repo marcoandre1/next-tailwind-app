@@ -1,6 +1,0 @@
-{
-  "spellright.language": ["en", "fr"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
-"editor.formatOnSave": true,
-"files.autoSave": "afterDelay"
-}
