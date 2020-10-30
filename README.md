@@ -2,7 +2,7 @@
 
 **Demo App** : [modokemdev.com/speakers-app](https://modokemdev.com/speakers-app/)
 
-This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_. It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) styling. Personally, I think the configuration of the project is kind of buggy. I was able to make a descent configuration (kind of boiler-template) in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages.
+This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_. It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) style. Personally, I don't like the project setup. You can find an updated setup in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages.
 
 The **next-tailwind-app** can run locally on your machine. Clone the repository and run `npm run dev`.
 
@@ -10,16 +10,14 @@ Here are the _notes_ I took from the course:
 
 ## index
 
-1. [Setting up the project]()
-2. [Splitting up the project]()
-3. [Render from array]()
-4. [Components abstraction]()
-5. [Tailwind CSS vs Bootstrap]()
-6. [Tailwind setup]()
-7. [Style refactoring with Tailwind CSS]()
-8. [Building a React Web App and Refactoring into Components]()
-9.
-10.
+1. [Setting up the project](https://github.com/marcoandre1/next-tailwind-app#setting-up-the-project)
+2. [Splitting up the project](https://github.com/marcoandre1/next-tailwind-app#splitting-up-the-project)
+3. [Render from array](https://github.com/marcoandre1/next-tailwind-app#render-from-array)
+4. [Components abstraction](https://github.com/marcoandre1/next-tailwind-app#components-abstraction)
+5. [Tailwind CSS vs Bootstrap](https://github.com/marcoandre1/next-tailwind-app#tailwind-css-vs-bootstrap)
+6. [Tailwind setup](https://github.com/marcoandre1/next-tailwind-app#tailwind-setup)
+7. [Style refactoring with Tailwind CSS](https://github.com/marcoandre1/next-tailwind-app#style-refactoring-with-tailwind-css)
+8. [Building a React Web App and Refactoring into Components](https://github.com/marcoandre1/next-tailwind-app#building-a-react-web-app-and-refactoring-into-components)
 
 ## Setting up the project
 
