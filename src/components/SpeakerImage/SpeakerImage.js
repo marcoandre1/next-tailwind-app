@@ -9,7 +9,7 @@ function SpeakerImage({ id }) {
       animationDuration="1"
       width={200}
       height={200}
-      applyReactRatio="true"
+      applyAspectRatio="true"
     />
   )
 }
