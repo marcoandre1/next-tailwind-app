@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "prettier": "prettier --write .",
-    "json-server": "json-server --watch db.json --port 4000 --delay 500"
+    "json-server": "json-server --watch db.json --port 4000 --delay 3000"
   },
   "repository": {
     "type": "git",

@@ -467,6 +467,34 @@ npm install json-server --save-dev
 
 ### Showing Data Loading Status and Error Codes when Loading REST data
 
+---
+
+#### Async/await Coding Pattern
+
+```javascript
+const response = await axios.get("http://..");
+```
+
+**Loading...**
+
+```javascript
+setSpeakers(response.data);
+```
+
+---
+
+Create constants for the different status you want to track:
+
+```javascript
+const REQUEST_STATUS = {
+    LOADING: 'loading',
+    SUCCESS: 'success',
+    ERROR: 'error',
+  }
+```
+
+Use web hooks and try/catch elements to manage the different status.
+
 ### Using a Reducer to Consolidate and Simplify Our State Management
 
 ### Extracting and Refactoring Reducer Functionality
