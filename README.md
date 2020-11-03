@@ -472,13 +472,13 @@ npm install json-server --save-dev
 #### Async/await Coding Pattern
 
 ```javascript
-const response = await axios.get("http://..");
+const response = await axios.get('http://..')
 ```
 
 **Loading...**
 
 ```javascript
-setSpeakers(response.data);
+setSpeakers(response.data)
 ```
 
 ---
@@ -487,14 +487,24 @@ Create constants for the different status you want to track:
 
 ```javascript
 const REQUEST_STATUS = {
-    LOADING: 'loading',
-    SUCCESS: 'success',
-    ERROR: 'error',
-  }
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error',
+}
 ```
 
 Use web hooks and try/catch elements to manage the different status.
 
 ### Using a Reducer to Consolidate and Simplify Our State Management
+
+1. Multiple state variables change in same event
+2. Reuse state management in different code location
+3. All state management code in a single location
+
+A **Reducer** is a function that takes in an old state, along with an object called action, and returns a new state.
+
+```javascript
+(previousState, action) => newState
+```
 
 ### Extracting and Refactoring Reducer Functionality
