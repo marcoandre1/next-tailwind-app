@@ -14,12 +14,11 @@ import {
 } from '../../actions/request'
 
 const Speakers = () => {
-
   const onFavoriteToggleHandler = async (speakerRec) => {
     try {
       const toggledSpeakerRec = {
         ...speakerRec,
-      isFavorite: !speakerRec.isFavorite,
+        isFavorite: !speakerRec.isFavorite,
       }
       await axios.put(
         `http://localhost:4000/speakers/${speakerRec.id}`,
@@ -39,11 +38,14 @@ const Speakers = () => {
 
   const [searchQuery, setSearchQuery] = useState('')
 
-  const [{records: speakers, status, error}, dispatch] = useReducer(requestReducer, {
-    records: [],
-    status: REQUEST_STATUS.LOADING,
-    error: null,
-  })
+  const [{ records: speakers, status, error }, dispatch] = useReducer(
+    requestReducer,
+    {
+      records: [],
+      status: REQUEST_STATUS.LOADING,
+      error: null,
+    }
+  )
 
   useEffect(() => {
     const fetchData = async () => {

@@ -33,18 +33,22 @@ const requestReducer = (state, action) => {
       const recordIndex = records.map((rec) => rec.id).indexOf(record.id)
       return {
         ...state,
-        records: [...records.slice(0, recordIndex), record, ...records.slice(recordIndex + 1)],
+        records: [
+          ...records.slice(0, recordIndex),
+          record,
+          ...records.slice(recordIndex + 1),
+        ],
       }
     case PUT_FAILURE:
       console.log(
-        'PUT_FAILURE: Currently just logging to console without refreshing records list',
+        'PUT_FAILURE: Currently just logging to console without refreshing records list'
       )
       return {
         ...state,
         error: action.error,
       }
-      default:
-        return state
+    default:
+      return state
   }
 }
-export default requestReducer;
+export default requestReducer

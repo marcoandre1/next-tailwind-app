@@ -2,7 +2,7 @@
 
 **Demo App** : [modokemdev.com/speakers-app](https://modokemdev.com/speakers-app/)
 
-This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_ ([Here](https://github.com/pkellner/pluralsight-designing-react-components-course-code) is the GitHub repository). It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) style. Personally, I don't like the project setup. You can find an updated setup in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages.
+This repository was built following the **Designing React Components** PluralSight course by _Peter Kellner_ ([Here](https://github.com/pkellner/pluralsight-designing-react-components-course-code) is the course repository in GitHub). It is a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/) style. Personally, I don't like the project setup. You can find an updated setup in my [speakers-app](https://github.com/marcoandre1/speakers-app) repository which I used to deploy to GitHub Pages. One of the things I liked was the implementation of the [json-server](https://www.npmjs.com/package/json-server) package that allows to easily setup a fake REST API for [axios](https://www.npmjs.com/package/axios) calls.
 
 The **next-tailwind-app** can run locally on your machine. Clone the repository and run `npm run dev`.
 
@@ -501,10 +501,35 @@ Use web hooks and try/catch elements to manage the different status.
 2. Reuse state management in different code location
 3. All state management code in a single location
 
-A **Reducer** is a function that takes in an old state, along with an object called action, and returns a new state.
+We have 3 different state primitives to manage the speakers list:
 
 ```javascript
-(previousState, action) => newState
+const [speakers, setSpeakers] = useState([])
+const [status, setStatus] = useState(REQUEST_STATUS.LOADING)
+const [error, setError] = useState({})
+```
+
+We can consolidate the state management of these 3 primitive state values into a **reducer**.
+
+> A **Reducer** is a function that takes in an old state, along with an object called action, and returns a new state.
+
+```javascript
+;(previousState, action) => newState
 ```
 
 ### Extracting and Refactoring Reducer Functionality
+
+Extract the actions into `src/actions/request.js` and the reducers into `src/reducers/request.js`.
+
+### Takeaways and Lookaheads
+
+- Migrating from strawman code app
+- Transition to real world app
+- Reducers bring benefits
+- Externalize reducers for reuse
+- Coming up, isolating data access
+  - using HOC's
+  - Using Render Props
+  - Using the Context API
+
+_... unfinished_
